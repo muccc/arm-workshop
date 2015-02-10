@@ -1,5 +1,3 @@
-NAME   = demoh103_blink_rom
-
 CC      = arm-none-eabi-gcc
 LD      = arm-none-eabi-ld
 AR      = arm-none-eabi-ar
