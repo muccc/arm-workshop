@@ -5,7 +5,7 @@ AS = arm-none-eabi-as
 CP = arm-none-eabi-objcopy
 OD = arm-none-eabi-objdump
   
-CFLAGS = -I./ -c -fno-common -O0 -g -mcpu=cortex-m3 -mthumb
+CFLAGS = -I./ -c -fno-common -O0 -g -mcpu=cortex-m4 -mthumb
 LFLAGS = -Tstm32f4.ld -nostartfiles
 
 all: main.elf
