@@ -6,23 +6,31 @@ CP = arm-none-eabi-objcopy
 OD = arm-none-eabi-objdump
   
 CFLAGS = -I./CMSIS/Include/
-CFLAGS += -I././STM32F4xx_HAL_Driver/Inc
+CFLAGS += -I./STM32F4xx_HAL_Driver/Inc
+CFLAGS += -I./CMSIS/Device/ST/STM32F4xx/Include/
 CFLAGS += -I./ -c -fno-common -O0 -g -mcpu=cortex-m4 -mthumb
 LFLAGS = -Tstm32f4.ld -nostartfiles
+
+# our code
+OBJS = main.o
+
+# startup files
+OBJS += handlers.o startup.o
+
+# drivers/lib
+OBJS += STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+OBJS += STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+OBJS += STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+OBJS += STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+OBJS += CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.o
 
 all: main.elf
 
 clean:
-	-rm -f main.lst crt.o main.o main.elf main.hex main.map stm32f4xx_hal_rcc.o stm32f4xx_hal_gpio.o main.bin main.list
+	-rm -f $(OBJS) main.lst main.elf main.hex main.map main.bin main.list
 
-main.elf: main.o stm32f4xx_hal_rcc.o stm32f4xx_hal_gpio.o stm32f4.ld
-	$(LD) $(LFLAGS) -o main.elf main.o stm32f4xx_hal_rcc.o stm32f4xx_hal_gpio.o
+main.elf: $(OBJS) stm32f4.ld
+	$(LD) $(LFLAGS) -o main.elf $(OBJS)
 
-stm32f4xx_hal_rcc.o: STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
-	 $(CC) $(CFLAGS) STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c 
-	 
-stm32f4xx_hal_gpio.o: STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-	 $(CC) $(CFLAGS) STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
-	 
-main.o: main.c
-	 $(CC) $(CFLAGS) main.c
+%.o : %.c
+	$(CC) $(CFLAGS) -o $@ $<
