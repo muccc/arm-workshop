@@ -31,5 +31,5 @@ SECTIONS
 
     end = .;
 
-    stack_entry = ram_top - 16;
+    stack_entry = ram_top;
 }
