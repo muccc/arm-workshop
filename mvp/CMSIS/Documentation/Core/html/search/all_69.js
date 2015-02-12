@@ -6,7 +6,7 @@ var searchData=
   ['icsr',['ICSR',['../struct_s_c_b___type.html#a3e66570ab689d28aebefa7e84e85dc4a',1,'SCB_Type']]],
   ['ictr',['ICTR',['../struct_s_cn_s_c_b___type.html#ad99a25f5d4c163d9005ca607c24f6a98',1,'SCnSCB_Type']]],
   ['intrinsic_20functions_20for_20cpu_20instructions',['Intrinsic Functions for CPU Instructions',['../group__intrinsic___c_p_u__gr.html',1,'']]],
-  ['intrinsic_20functions_20for_20simd_20instructions_20_5bonly_20cortex_2dm4_5d',['Intrinsic Functions for SIMD Instructions [only Cortex-M4]',['../group__intrinsic___s_i_m_d__gr.html',1,'']]],
+  ['intrinsic_20functions_20for_20simd_20instructions_20_5bonly_20cortex_2dm4_20and_20cortex_2dm7_5d',['Intrinsic Functions for SIMD Instructions [only Cortex-M4 and Cortex-M7]',['../group__intrinsic___s_i_m_d__gr.html',1,'']]],
   ['ip',['IP',['../struct_n_v_i_c___type.html#a6524789fedb94623822c3e0a47f3d06c',1,'NVIC_Type']]],
   ['ipsr_5ftype',['IPSR_Type',['../union_i_p_s_r___type.html',1,'']]],
   ['irqn_5ftype',['IRQn_Type',['../group___n_v_i_c__gr.html#ga7e1129cd8a196f4284d41db3e82ad5c8',1,'Ref_NVIC.txt']]],

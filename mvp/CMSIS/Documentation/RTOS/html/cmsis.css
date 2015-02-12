@@ -119,6 +119,15 @@ td.MonoTxt {
 	font-family:"Arial monospaced for SAP";
 }
 
+td.XML-Token 
+{
+	azimuth: 180;
+	font-style:italic;
+	color:Maroon;
+	z-index:20;
+	
+}
+
 span.XML-Token 
 {
 	azimuth: 180;
@@ -126,6 +135,12 @@ span.XML-Token
 	color:Maroon;
 	z-index:20;
 	
+}
+
+span.h2 
+{
+	font-size: 120%;
+	font-weight: bold;
 }
 
 
@@ -842,8 +857,8 @@ table.doxtable td, table.doxtable th {
 }
 
 table.doxtable th {
-	background-color: #354E81;
-	color: #FFFFFF;
+	background-color: #EBEFF6;
+	color: #000000;
 	font-size: 110%;
 	padding-bottom: 4px;
 	padding-top: 5px;
