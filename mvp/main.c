@@ -19,7 +19,14 @@ int main(void)
     GPIO_InitStructure.Speed = GPIO_SPEED_FAST;
     HAL_GPIO_Init(GPIOD, &GPIO_InitStructure);
 
-    HAL_GPIO_WritePin(LED4_GPIO_PORT, LED4_PIN, GPIO_PIN_SET);
+    while(1) {
+        HAL_GPIO_WritePin(LED4_GPIO_PORT, LED4_PIN, GPIO_PIN_SET);
+        HAL_Delay(500);
+        HAL_GPIO_WritePin(LED4_GPIO_PORT, LED4_PIN, GPIO_PIN_RESET);
+        HAL_Delay(500);
+    }
+}
 
-    while(1);
+void SysTick_Handler(void) {
+    HAL_IncTick();
 }
