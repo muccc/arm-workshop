@@ -1,7 +1,4 @@
-#include "stm32f4xx_hal_rcc.h"
-#include "stm32f4xx_hal_gpio.h"
-
-#include <stdbool.h>
+#include "stm32f4xx_hal.h"
 
 #define LED4_PIN                         GPIO_PIN_12
 #define LED4_GPIO_PORT                   GPIOD
@@ -9,6 +6,8 @@
 int main(void)
 {
     GPIO_InitTypeDef   GPIO_InitStructure;
+
+    HAL_Init();
 
     /* Enable GPIOD clock */
     __HAL_RCC_GPIOD_CLK_ENABLE();

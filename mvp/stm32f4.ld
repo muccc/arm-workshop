@@ -1,24 +1,25 @@
 MEMORY
 {
-  ram (rwx) :   ORIGIN = 0x20000000, LENGTH = 192K
-  rom (rx) :    ORIGIN = 0x00000000, LENGTH = 1M
+  ram (rwx) :   ORIGIN = 0x20000000, LENGTH = 128K
+  rom (rx) :    ORIGIN = 0x08000000, LENGTH = 1M
 }
 
 ram_top = ORIGIN(ram) + LENGTH(ram);
+ENTRY(boot_entry)
 
 SECTIONS
 {
     .text : {
         KEEP(*(.irq-vectors))
-        *(.text)
-        *(.rodata)
+        *(.text*)
+        *(.rodata*)
         _etext = .;
     } >rom
 
     .data :
     {
         _data = .;
-        *(.data)
+        *(.data*)
         _edata = .;
     } >ram AT > rom
 
@@ -30,5 +31,5 @@ SECTIONS
 
     end = .;
 
-    stack_entry = ram_top;
+    stack_entry = ram_top - 16;
 }

@@ -37,6 +37,7 @@ extern unsigned char _ebss;
 
 // Prototype the required startup functions
 extern int main(void);
+extern void SystemInit(void);
 
 // The entry point of the application, prepare segments,
 // initialize the cpu and execute main()
@@ -56,7 +57,6 @@ void boot_entry(void)
   while(dst < &_ebss) {
     *dst++ = 0;
   }
-
   // initialize the clocks
   SystemInit();
 

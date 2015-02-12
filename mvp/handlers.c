@@ -135,6 +135,8 @@ void fault_undefined() {
   while(1);
 }
 
+void empty() {}
+
 void NMI_Handler(void)          WEAK_ALIAS(fault_undefined)
 void HardFault_Handler(void)    WEAK_ALIAS(fault_undefined)
 void MemManage_Handler(void)    WEAK_ALIAS(fault_undefined)
@@ -143,7 +145,7 @@ void UsageFault_Handler(void)   WEAK_ALIAS(fault_undefined)
 void SVCall_Handler(void)       WEAK_ALIAS(fault_undefined)
 void DebugMon_Handler(void)     WEAK_ALIAS(fault_undefined)
 void PendSV_Handler(void)       WEAK_ALIAS(fault_undefined)
-void SysTick_Handler(void)      WEAK_ALIAS(fault_undefined)
+void SysTick_Handler(void)      WEAK_ALIAS(empty)
 
 /******************************************************************************
  * Forward undefined IRQ handlers to an infinite loop function. The Handlers
