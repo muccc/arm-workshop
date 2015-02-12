@@ -57,6 +57,9 @@ void boot_entry(void)
     *dst++ = 0;
   }
 
+  // initialize the clocks
+  SystemInit();
+
   // Execute the code at the program entry point
   main();
 

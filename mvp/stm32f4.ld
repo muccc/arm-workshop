@@ -12,16 +12,15 @@ SECTIONS
         KEEP(*(.irq-vectors))
         *(.text)
         *(.rodata)
+        _etext = .;
     } >rom
 
-    _etext = .;
-
-    .data : AT (_etext)
+    .data :
     {
         _data = .;
         *(.data)
         _edata = .;
-    } >ram
+    } >ram AT > rom
 
     .bss : {
         _bss = .;
